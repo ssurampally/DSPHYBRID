@@ -1,0 +1,8 @@
+{
+  "SYN_FACT_SALES": {
+    "target": {
+      "object": "FACT_SALES",
+      "schema": "IT_CENTRAL"
+    }
+  }
+}

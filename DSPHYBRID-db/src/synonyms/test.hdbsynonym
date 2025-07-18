@@ -1,0 +1,8 @@
+{
+  "Synonym_0": {
+    "target": {
+      "object": "FACT_SALES",
+      "schema": "IT_CENTRAL"
+    }
+  }
+}

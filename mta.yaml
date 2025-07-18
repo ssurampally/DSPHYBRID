@@ -1,0 +1,33 @@
+_schema-version: '2.1'
+ID: DSPHYBRID
+version: 0.0.1
+modules:
+  - name: DSPHYBRID-db
+    type: hdb
+    path: DSPHYBRID-db
+    requires:
+      - name: hdi_DSPHYBRID-db
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+      - name: UPS_DSP
+        group: SERVICE_REPLACEMENTS
+        properties: 
+          key: ServiceName_1
+          service: ~{the-service-name}
+
+        
+resources:
+  - name: hdi_DSPHYBRID-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      config:
+        database_id: 93607708-6350-4e60-b231-65bc7470dcf5
+        schema: DSPHYBRID
+    properties:
+      hdi-container-name: '${service-name}'
+  - name: UPS_DSP
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: UPS-DSP-HANA
+    properties:
+      the-service-name: '${service-name}'
